@@ -1,4 +1,5 @@
 var express = require('express');
+var connection = require('../database/index.js');
 // var bodyParser = require('body-parser');
 var path = require('path');
 var port = 3000;
@@ -9,7 +10,9 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-
+app.get('/photos', function(req, res) {
+  res.send();
+});
 
 
 
