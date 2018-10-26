@@ -11,4 +11,9 @@ CREATE TABLE photos (
   description TEXT
 );
 
+CREATE TABLE properties (
+  id INT AUTO_INCREMENT PRIMARY KEY
+)
+
 DESCRIBE photos;
+DESCRIBE properties;

@@ -1,6 +1,7 @@
-var db = require('./index.js');
-var insertToDB = require('./index.js');
-var getFromDB = require('./index.js');
+// var mysql = require('mysql');
+// var db = require('./index.js');
+// var insertToDB = require('./index.js');
+// var getFromDB = require('./index.js');
 
 // HELPER FUNCTIONS
 var descriptionGenerator = () => {
@@ -19,24 +20,21 @@ var randomUrlGenerator = () => {
 
 
 // COLLECTION OF 100 RANDOMLY GENEREATED IMAGES AND DESCRIPTIONS 
-var collection = [];
-
-for (var i = 1; i < 101; i++) {
-  var property = {
-    propertyID: i,
-    images: []
-  };
-  // RANDOM NUMBER OF PICTURES GENERATED 
-  var randomAmount = Math.ceil(Math.random() * 8);
-  for (var e = 0; e < randomAmount; e++) {
-    var image = {
-      photo: randomUrlGenerator(),
-      description: descriptionGenerator()
+var func = () => {
+  var collection = [];
+  for (var i = 1; i < 101; i++) {
+    // RANDOM NUMBER OF PICTURES GENERATED 
+    var randomAmount = Math.ceil(Math.random() * 8);
+    for (var e = 0; e < randomAmount; e++) {
+      var image = {
+        propertyID: i,
+        url: randomUrlGenerator(),
+        description: descriptionGenerator()
+      }
+      collection.push(image);
     }
-    property.images.push(image);
   }
-  collection.push(property);
+  return collection;
 }
 
-// console.log(collection);
-// console.log(hello);
+console.log(func());
