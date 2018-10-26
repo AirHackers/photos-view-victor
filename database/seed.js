@@ -37,3 +37,6 @@ for (var i = 1; i < 101; i++) {
   }
   collection.push(property);
 }
+
+// console.log(collection);
+// console.log(hello);
