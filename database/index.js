@@ -18,24 +18,27 @@ db.connect((err) => {
 
 var insertToDB = (data, cb) => {
   var query = `INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)`; 
-  db.query(query, [randomUrlGenerator, descriptionGenerator], function(error, results, fields) {
-    callback(error, null);
+  db.query(query, [data.propertyID, data.url, data.description], function(error, results, fields) {
+    if (error) {
+      cb(error);
+      console.log(results);
+    }
   });
 }
 
 // !!!!!!!!!!!!!!!!!! REDO QUERY STATEMENT TO CORRECT PHRASE !!!!!!!!!!!!!!!!!!
 
-var getFromDB = () => {
-  var query = `SELECT * FROM photos WHERE propertyID ON ?`  ;
-  db.query(query, [id], function(error, results, fields) {
-    if (error) {
-      callback(error, null);
-    } else {
-      callback(null, results);
-    }
-  });
-}
+// var getFromDB = () => {
+//   var query = `SELECT * FROM photos WHERE propertyID ON ?`  ;
+//   db.query(query, [id], function(error, results, fields) {
+//     if (error) {
+//       callback(error, null);
+//     } else {
+//       callback(null, results);
+//     }
+//   });
+// }
 
 module.exports = db;
 module.exports = insertToDB;
-module.exports = getFromDB;
+// module.exports = getFromDB;

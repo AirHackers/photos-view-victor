@@ -13,7 +13,7 @@ CREATE TABLE photos (
 
 CREATE TABLE properties (
   id INT AUTO_INCREMENT PRIMARY KEY
-)
+);
 
 DESCRIBE photos;
 DESCRIBE properties;

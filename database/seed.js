@@ -1,6 +1,5 @@
-// var mysql = require('mysql');
 // var db = require('./index.js');
-// var insertToDB = require('./index.js');
+var insertToDB = require('./index.js');
 // var getFromDB = require('./index.js');
 
 // HELPER FUNCTIONS
@@ -18,12 +17,11 @@ var randomUrlGenerator = () => {
   return (`https://s3-us-west-1.amazonaws.com/wanderlodge/${randomNumber}.jpg`)
 }
 
-
 // COLLECTION OF 100 RANDOMLY GENEREATED IMAGES AND DESCRIPTIONS 
 var func = () => {
   var collection = [];
   for (var i = 1; i < 101; i++) {
-    // RANDOM NUMBER OF PICTURES GENERATED 
+    // GENERATE RANDOM AMOUNT OF PICTURES
     var randomAmount = Math.ceil(Math.random() * 8);
     for (var e = 0; e < randomAmount; e++) {
       var image = {
@@ -34,7 +32,13 @@ var func = () => {
       collection.push(image);
     }
   }
+  console.log(collection);
   return collection;
 }
 
-console.log(func());
+// INVOKE AND INSERT INTO DB
+func().forEach((item) => insertToDB(item, (err) => {
+  if (err) {
+    console.log(err);
+  }
+}));
