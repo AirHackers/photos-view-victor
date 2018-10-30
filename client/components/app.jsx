@@ -1,7 +1,4 @@
 import React from 'react';
-// import Promise from 'bluebird';
-// import $ from 'jquery';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -14,18 +11,14 @@ class App extends React.Component {
 
   fetchPhoto() {
     return fetch('/photos/1')
-      .then(function(response) {
+      .then (function(response) {
         return response.json();
       })
-      .then(function(myJson) {
+      .then (function(myJson) {
         return JSON.stringify(myJson);
       })
       .catch(err => {if (err) console.log(err)});
   }
-
-  // componentDidMount() {
-  //   this.fetchPhoto()
-  // }
 
   componentDidMount() {
     this.fetchPhoto()

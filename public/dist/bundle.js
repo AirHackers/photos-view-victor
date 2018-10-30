@@ -115,8 +115,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
- // import Promise from 'bluebird';
-// import $ from 'jquery';
+
 
 var App =
 /*#__PURE__*/
@@ -145,10 +144,7 @@ function (_React$Component) {
       }).catch(function (err) {
         if (err) console.log(err);
       });
-    } // componentDidMount() {
-    //   this.fetchPhoto()
-    // }
-
+    }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {

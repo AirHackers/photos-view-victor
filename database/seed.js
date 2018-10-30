@@ -9,15 +9,15 @@ const descriptionGenerator = () => {
   const loc = ['heart of ', 'downtown ', 'coastal ', 'beautiful '];
   const city = ['San Francisco', 'New York', 'Bay Area', 'Silicon Valley', 'Community', 'Los Angeles'];
 
-  return (adj[Math.floor(Math.random() * adj.length)] + space[Math.floor(Math.random() * space.length)] + 'in ' + loc[Math.floor(Math.random() * loc.length)] + city[Math.floor(Math.random() * city.length)])
-}
+  return (`${adj[Math.floor(Math.random() * adj.length)]} ${space[Math.floor(Math.random() * space.length)]}in ${loc[Math.floor(Math.random() * loc.length)]} ${city[Math.floor(Math.random() * city.length)]}`);
+};
 
 const randomUrlGenerator = () => {
   const randomNumber = Math.ceil(Math.random() * 21);
   return (`https://s3-us-west-1.amazonaws.com/wanderlodge/${randomNumber}.jpg`);
 };
 
-// COLLECTION OF 100 RANDOMLY GENEREATED IMAGES AND DESCRIPTIONS 
+// COLLECTION OF 100 RANDOMLY GENEREATED IMAGES AND DESCRIPTIONS
 
 const func = () => {
   const collection = [];

@@ -15,25 +15,25 @@ db.connect((err) => {
 });
 
 const insertToDB = (data, cb) => {
-  const query = `INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)`; 
-  db.query(query, [data.propertyID, data.url, data.description], function(error, results, fields) {
+  const query = 'INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)';
+  db.query(query, [data.propertyID, data.url, data.description], (error, results) => {
     if (error) {
       cb(error);
       console.log(results);
     }
   });
-}
+};
 
 const getFromDB = (propertyID, callback) => {
-  const query = `SELECT * FROM photos WHERE propertyID = ?`;
-  db.query(query, propertyID, function(error, results, fields) {
+  const query = 'SELECT * FROM photos WHERE propertyID = ?';
+  db.query(query, propertyID, (error, results) => {
     if (error) {
       callback(error, null);
     } else {
       callback(null, results);
     }
   });
-}
+};
 
 module.exports = db;
 module.exports = insertToDB;
