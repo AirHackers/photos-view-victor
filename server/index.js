@@ -1,22 +1,25 @@
-var express = require('express');
-var connection = require('../database/index.js');
-var path = require('path');
-var port = 3002;
+const port = 3002;
+const express = require('express');
+const path = require('path');
+const getFromDB = require('../database/index.js');
 
-var app = express();
+const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-// !!!!!!!!!!!!!!!! AM I WRITING THIS CORRECTLY WITH THE QUERY STRING !!!!!!!!!!!!!!!!!!!!!!!
-// DO I NEED /PHOTOS?ID=1 OR SOMETHING 
-// SHOULD I USE REQ.QUERY 
-
-app.get('/photos', function(req, res) {
-  res.send();
+app.get('/photos/:propertyID', (req, res) => {
+  getFromDB(req.params.propertyID, (err, results) => {
+    if (err) {
+      res.status(400);
+      res.send(err);
+    } else {
+      res.status(200);
+      res.send(results);
+    }
+  });
 });
 
 app.listen(port, () => {
-  console.log('listening at port: ', port)
+  console.log('listening at port: ', port);
 });

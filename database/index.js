@@ -14,8 +14,6 @@ db.connect((err) => {
   }
 })
 
-// !!!!!!!!!!!!!!!!! need id from url. From express i need to get req.query !!!!!!!!!!!!!!!!!!!
-
 var insertToDB = (data, cb) => {
   var query = `INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)`; 
   db.query(query, [data.propertyID, data.url, data.description], function(error, results, fields) {
@@ -26,19 +24,16 @@ var insertToDB = (data, cb) => {
   });
 }
 
-// !!!!!!!!!!!!!!!!!! REDO QUERY STATEMENT TO CORRECT PHRASE !!!!!!!!!!!!!!!!!!
-
-// var getFromDB = () => {
-//   var query = `SELECT * FROM photos WHERE propertyID ON ?`  ;
-//   db.query(query, [id], function(error, results, fields) {
-//     if (error) {
-//       callback(error, null);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// }
+var getFromDB = (propertyID, callback) => {
+  var query = `SELECT * FROM photos WHERE propertyID ON ?`;
+  db.query(query, propertyID, function(error, results, fields) {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
 
 module.exports = db;
 module.exports = insertToDB;
-// module.exports = getFromDB;
