@@ -115,7 +115,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-
+ // import Promise from 'bluebird';
+// import $ from 'jquery';
 
 var App =
 /*#__PURE__*/
@@ -129,15 +130,42 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
-      someState: 'string'
+      photos: []
     };
     return _this;
   }
 
   _createClass(App, [{
+    key: "fetchPhoto",
+    value: function fetchPhoto() {
+      return fetch('/photos/1').then(function (response) {
+        return response.json();
+      }).then(function (myJson) {
+        return JSON.stringify(myJson);
+      }).catch(function (err) {
+        if (err) console.log(err);
+      });
+    } // componentDidMount() {
+    //   this.fetchPhoto()
+    // }
+
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.fetchPhoto().then(function (val) {
+        _this2.setState({
+          photos: val
+        });
+
+        console.log(val);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "renderrrrrrrrrrrrr");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.photos);
     }
   }]);
 

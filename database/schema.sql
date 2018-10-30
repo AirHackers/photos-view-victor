@@ -16,4 +16,4 @@ CREATE TABLE properties (
 );
 
 DESCRIBE photos;
-DESCRIBE properties;
+DESCRIBE properties; 

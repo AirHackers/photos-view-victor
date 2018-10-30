@@ -1,9 +1,9 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var db = mysql.createConnection({
+const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  database: 'photosdb'
+  database: 'photosdb',
 });
 
 db.connect((err) => {
@@ -12,10 +12,10 @@ db.connect((err) => {
   } else {
     console.log('Connected!');
   }
-})
+});
 
-var insertToDB = (data, cb) => {
-  var query = `INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)`; 
+const insertToDB = (data, cb) => {
+  const query = `INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)`; 
   db.query(query, [data.propertyID, data.url, data.description], function(error, results, fields) {
     if (error) {
       cb(error);
@@ -24,8 +24,8 @@ var insertToDB = (data, cb) => {
   });
 }
 
-var getFromDB = (propertyID, callback) => {
-  var query = `SELECT * FROM photos WHERE propertyID ON ?`;
+const getFromDB = (propertyID, callback) => {
+  const query = `SELECT * FROM photos WHERE propertyID = ?`;
   db.query(query, propertyID, function(error, results, fields) {
     if (error) {
       callback(error, null);
@@ -37,3 +37,4 @@ var getFromDB = (propertyID, callback) => {
 
 module.exports = db;
 module.exports = insertToDB;
+module.exports = getFromDB;
