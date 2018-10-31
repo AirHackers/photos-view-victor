@@ -1,8 +1,6 @@
 import React from 'react';
 
-// unable to load with out mapping, but cannot map because first 5 photos are necessary
-// 
-const LeftList = (props) => {
+const PhotoGrid = (props) => {
   console.log(props.photos)
 
   return(
@@ -27,5 +25,4 @@ const LeftList = (props) => {
   );
 };
 
-export default LeftList;
-
+export default PhotoGrid;

@@ -1,13 +1,12 @@
 import React from 'react';
-import LeftList from './leftList';
+import PhotoGrid from './photoGrid';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      photos: [ 
-        {
+      photos: [{
         "id": 1,
         "propertyID": 1,
         "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg",
@@ -42,8 +41,7 @@ class App extends React.Component {
         "propertyID": 1,
         "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
         "description": "Cozy shared apartment in downtown Community"
-      },
-    ],
+      }],
     };
   }
 
@@ -72,7 +70,7 @@ class App extends React.Component {
         <div>
     
         </div>
-        <LeftList photos={this.state.photos} />
+        <PhotoGrid photos={this.state.photos} />
       </div>
     );
   }

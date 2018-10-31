@@ -1,6 +1,4 @@
-// var db = require('./index.js');
 const insertToDB = require('./index.js');
-// var getFromDB = require('./index.js');
 
 // HELPER FUNCTIONS
 const descriptionGenerator = () => {
@@ -18,7 +16,6 @@ const randomUrlGenerator = () => {
 };
 
 // COLLECTION OF 100 RANDOMLY GENEREATED IMAGES AND DESCRIPTIONS
-
 const func = () => {
   const collection = [];
   for (let i = 1; i < 101; i += 1) {
