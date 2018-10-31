@@ -1,11 +1,49 @@
 import React from 'react';
+import LeftList from './leftList';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      photos: [],
+      photos: [ 
+        {
+        "id": 1,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg",
+        "description": "Nestled zen in coastal Silicon Valley"
+      },
+      {
+        "id": 2,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/3.jpg",
+        "description": "Nestled zen in coastal Los Angeles"
+      },
+      {
+        "id": 3,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/6.jpg",
+        "description": "Lovely retreat in heart of Silicon Valley"
+      },
+      {
+        "id": 4,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
+        "description": "Desirable sanctuary in downtown Los Angeles"
+      },
+      {
+        "id": 445,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/4.jpg",
+        "description": "Sunny retreat in heart of Community"
+      },
+      {
+        "id": 446,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
+        "description": "Cozy shared apartment in downtown Community"
+      },
+    ],
     };
   }
 
@@ -23,7 +61,7 @@ class App extends React.Component {
   componentDidMount() {
     this.fetchPhoto()
       .then((val) => {
-        this.setState({ photos: val });
+        this.setState({ photos: JSON.parse(val) });
         console.log(val);
       });
   }
@@ -31,7 +69,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {this.state.photos}
+        <div>
+    
+        </div>
+        <LeftList photos={this.state.photos} />
       </div>
     );
   }

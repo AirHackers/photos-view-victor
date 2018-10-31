@@ -1,0 +1,74 @@
+.grid-container {
+  display: grid;
+  height: auto;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "main main img1 img2" "main main img3 img4" ". . . ." ". . . .";
+}
+
+#main { 
+  height: 100%;
+  width: 100%;
+}
+
+#img1 { 
+  height: 100%;
+  width: 100%;
+}
+
+#img2 { 
+  height: 100%;
+  width: 100%;
+}
+
+#img3 { 
+  height: 100%;
+  width: 100%;
+}
+
+#img4 { 
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  grid-area: main;
+  border: 3px solid grey; 
+  width: 100%;
+  height: auto;
+}
+
+.img1 {
+  grid-area: img1; 
+  border: 2px solid grey; 
+  width: 100%;
+  height: auto;
+}
+
+.img2 { 
+  grid-area: img2; 
+  border: 2px solid grey; 
+  width: 100%;
+  height: auto;
+}
+
+.img3 { 
+  grid-area: img3; 
+  border: 2px solid grey; 
+  width: 100%;
+  height: auto;
+}
+
+.img4 { 
+  grid-area: img4; 
+  border: 2px solid grey; 
+  width: 100%;
+  height: auto; 
+}
+/* 
+.button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+} */

@@ -21,11 +21,6 @@ app.get('/photos/:propertyID', (req, res) => {
   });
 });
 
-// app.get('/photos/1', (req, res) => {
-//   res.send(JSON.stringify({ 'response workingggg': 'response workingggg' }));
-//   console.log('get workingggggg');
-// });
-
 app.listen(port, () => {
   console.log('listening at port: ', port);
 });

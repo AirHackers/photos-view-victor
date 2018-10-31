@@ -97,6 +97,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _leftList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./leftList */ "./client/components/leftList.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -117,6 +118,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var App =
 /*#__PURE__*/
 function (_React$Component) {
@@ -129,7 +131,37 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
-      photos: []
+      photos: [{
+        "id": 1,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg",
+        "description": "Nestled zen in coastal Silicon Valley"
+      }, {
+        "id": 2,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/3.jpg",
+        "description": "Nestled zen in coastal Los Angeles"
+      }, {
+        "id": 3,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/6.jpg",
+        "description": "Lovely retreat in heart of Silicon Valley"
+      }, {
+        "id": 4,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
+        "description": "Desirable sanctuary in downtown Los Angeles"
+      }, {
+        "id": 445,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/4.jpg",
+        "description": "Sunny retreat in heart of Community"
+      }, {
+        "id": 446,
+        "propertyID": 1,
+        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
+        "description": "Cozy shared apartment in downtown Community"
+      }]
     };
     return _this;
   }
@@ -152,7 +184,7 @@ function (_React$Component) {
 
       this.fetchPhoto().then(function (val) {
         _this2.setState({
-          photos: val
+          photos: JSON.parse(val)
         });
 
         console.log(val);
@@ -161,7 +193,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.photos);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_leftList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        photos: this.state.photos
+      }));
     }
   }]);
 
@@ -169,6 +203,57 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./client/components/leftList.jsx":
+/*!****************************************!*\
+  !*** ./client/components/leftList.jsx ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+ // unable to load with out mapping, but cannot map because first 5 photos are necessary
+// 
+
+var LeftList = function LeftList(props) {
+  console.log(props.photos);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "grid-container",
+    onClick: "console.log('hello');"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "main",
+    src: props.photos[0].url
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "img1"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "img1",
+    src: props.photos[1].url
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "img2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "img2",
+    src: props.photos[2].url
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "img3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "img3",
+    src: props.photos[3].url
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "img4"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "img4",
+    src: props.photos[4].url
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LeftList);
 
 /***/ }),
 
