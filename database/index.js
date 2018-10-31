@@ -1,9 +1,9 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var db = mysql.createConnection({
+const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  database: 'photosdb'
+  database: 'photosdb',
 });
 
 db.connect((err) => {
@@ -12,33 +12,28 @@ db.connect((err) => {
   } else {
     console.log('Connected!');
   }
-})
+});
 
-// !!!!!!!!!!!!!!!!! need id from url. From express i need to get req.query !!!!!!!!!!!!!!!!!!!
-
-var insertToDB = (data, cb) => {
-  var query = `INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)`; 
-  db.query(query, [data.propertyID, data.url, data.description], function(error, results, fields) {
+const insertToDB = (data, cb) => {
+  const query = 'INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)';
+  db.query(query, [data.propertyID, data.url, data.description], (error, results) => {
     if (error) {
       cb(error);
       console.log(results);
     }
   });
-}
+};
 
-// !!!!!!!!!!!!!!!!!! REDO QUERY STATEMENT TO CORRECT PHRASE !!!!!!!!!!!!!!!!!!
+const getFromDB = (propertyID, callback) => {
+  const query = 'SELECT * FROM photos WHERE propertyID = ?';
+  db.query(query, propertyID, (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
 
-// var getFromDB = () => {
-//   var query = `SELECT * FROM photos WHERE propertyID ON ?`  ;
-//   db.query(query, [id], function(error, results, fields) {
-//     if (error) {
-//       callback(error, null);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// }
-
-module.exports = db;
 module.exports = insertToDB;
-// module.exports = getFromDB;
+module.exports = getFromDB;
