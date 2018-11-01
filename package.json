@@ -29,6 +29,7 @@
     "mysql": "^2.16.0",
     "nodemon": "^1.18.5",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "react-modal": "^3.6.1"
   }
 }

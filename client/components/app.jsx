@@ -1,11 +1,27 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 import PhotoGrid from './photoGrid';
+// import Modal from './modal';
+
+const customStyles = {
+  content : {
+    top                   : '100%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      // currentPhoto: this.state.photos[0].url,
+      modalIsOpen: false,
       photos: [{
         "id": 1,
         "propertyID": 1,
@@ -43,8 +59,36 @@ class App extends React.Component {
         "description": "Cozy shared apartment in downtown Community"
       }],
     };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+    this.nextClick = this.nextClick.bind(this);
+    this.previousClick = this.previousClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
+  nextClick() {
+    this.setState({currentPhoto: "current photo"})
+  };
+  
+  previousClick() {
+    this.setState({currentPhoto: "current photo"})
+  };
+
+  handleClick() {
+    this.setState({currentPhoto: "current photo"})
+  };
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+ 
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+  
   fetchPhoto() {
     return fetch('/photos/1')
       .then (function(response) {
@@ -67,10 +111,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
-    
+        <div id="app-root">
+          <PhotoGrid photos={this.state.photos} />
         </div>
-        <PhotoGrid photos={this.state.photos} />
+        <button onClick={this.openModal}>modal example button</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Photos Modal"
+        >
+          open a component here
+          <button id="modal-close-button" onClick={this.closeModal}>Close modal</button>
+        </Modal>
       </div>
     );
   }
