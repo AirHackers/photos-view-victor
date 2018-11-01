@@ -73,6 +73,16 @@
   right: 10px;
 } */
 
-#modal-close-button {
-  
-}
+
+/* const customStyles = {
+  content : {
+    position              : absolute;
+    top                   : '100%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+}; */
+
