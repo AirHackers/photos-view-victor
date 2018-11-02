@@ -136,8 +136,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
-      // currentPhoto: this.state.photos[0].url,
       modalIsOpen: false,
+      currentIndex: 0,
       photos: [{
         "id": 1,
         "propertyID": 1,
@@ -174,29 +174,31 @@ function (_React$Component) {
     _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.nextClick = _this.nextClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.previousClick = _this.previousClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(App, [{
     key: "nextClick",
     value: function nextClick() {
-      this.setState({
-        currentPhoto: "current photo"
+      if (this.state.currentIndex === this.state.photos.length - 1) {
+        return this.setState({
+          currentIndex: 1
+        });
+      }
+
+      this.setState(function (prevState) {
+        return {
+          currentIndex: prevState.currentIndex + 1
+        };
       });
     }
   }, {
     key: "previousClick",
     value: function previousClick() {
-      this.setState({
-        currentPhoto: "current photo"
-      });
-    }
-  }, {
-    key: "handleClick",
-    value: function handleClick() {
-      this.setState({
-        currentPhoto: "current photo"
+      this.setState(function (prevState) {
+        return {
+          currentIndex: prevState.currentIndex - 1
+        };
       });
     }
   }, {
@@ -240,14 +242,14 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "app-root"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photoGrid__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        photos: this.state.photos
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_newModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_newModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
         state: this.state,
         openModal: this.openModal,
-        closeModal: this.closeModal
+        closeModal: this.closeModal,
+        nextClick: this.nextClick,
+        prevClick: this.prevClick
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photoGrid__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        photos: this.state.photos
       }));
     }
   }]);
@@ -274,26 +276,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _slideshow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slideshow */ "./client/components/slideshow.jsx");
+
 
 
 
 react_modal__WEBPACK_IMPORTED_MODULE_2___default.a.setAppElement('#app');
 
-var NewModal = function NewModal(props) {
+var Modal = function Modal(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: props.openModal
+    onClick: function onClick() {
+      return props.openModal();
+    }
   }, "modal example button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
     isOpen: props.state.modalIsOpen,
-    onRequestClose: props.closeModal // style={customStyles}
-    ,
-    contentLabel: "Photos Modal"
-  }, "open a component here", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onRequestClose: props.closeModal,
+    className: "Modal"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_slideshow__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    state: props.state
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "backArrow",
+    onClick: props.prevClick
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: props.prevClick
+  }, "back")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nextArrow",
+    onClick: props.nextClick
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "forward")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     id: "modal-close-button",
-    onClick: props.closeModal
+    onClick: function onClick() {
+      return props.closeModal();
+    }
   }, "Close modal")));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (NewModal);
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
 
 /***/ }),
 
@@ -311,10 +328,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PhotoGrid = function PhotoGrid(props) {
-  console.log(props.photos);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "grid-container",
-    onClick: "console.log('hello');"
+    className: "grid-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -349,6 +364,31 @@ var PhotoGrid = function PhotoGrid(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PhotoGrid);
+
+/***/ }),
+
+/***/ "./client/components/slideshow.jsx":
+/*!*****************************************!*\
+  !*** ./client/components/slideshow.jsx ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var SlideShow = function SlideShow(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "slideshow-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.state.photos[props.state.currentIndex].url
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.state.photos[props.state.currentIndex].description));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SlideShow);
 
 /***/ }),
 

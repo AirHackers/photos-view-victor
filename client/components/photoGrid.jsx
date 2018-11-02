@@ -1,10 +1,9 @@
 import React from 'react';
 
 const PhotoGrid = (props) => {
-  console.log(props.photos)
 
   return(
-    <div className="grid-container" onClick="console.log('hello');">
+    <div className="grid-container">
       <div className="main">
         <img id="main" alt="Main Image" src={props.photos[0].url}/>
       </div>
@@ -19,7 +18,6 @@ const PhotoGrid = (props) => {
       </div>
       <div className="img4">
         <img id="img4" alt="Photo4" src={props.photos[4].url}/>
-        {/* <a className="button" href="" text="button"></a> */}
       </div>
     </div>
   );
