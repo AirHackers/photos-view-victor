@@ -1,52 +1,87 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PhotoGrid from './photoGrid';
+import Modal from './newModal';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      modalIsOpen: false,
+      currentIndex: 0,
       photos: [{
         "id": 1,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Nestled zen in coastal Silicon Valley"
       },
       {
         "id": 2,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/3.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Nestled zen in coastal Los Angeles"
       },
       {
         "id": 3,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/6.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Lovely retreat in heart of Silicon Valley"
       },
       {
         "id": 4,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Desirable sanctuary in downtown Los Angeles"
       },
       {
         "id": 445,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/4.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Sunny retreat in heart of Community"
-      },
-      {
-        "id": 446,
-        "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
-        "description": "Cozy shared apartment in downtown Community"
       }],
     };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.nextClick = this.nextClick.bind(this);
+    this.prevClick = this.prevClick.bind(this);
   }
 
-  fetchPhoto() {
-    return fetch('/photos/1')
+  nextClick() {
+    if (this.state.currentIndex === this.state.photos.length - 1) {
+      return this.setState({
+        currentIndex: 0,
+      });
+    }
+
+    this.setState(prevState => ({
+      currentIndex: prevState.currentIndex + 1,
+    }));
+  }
+  
+  prevClick() {
+    if (this.state.currentIndex === 0) {
+      return this.setState({
+        currentIndex: this.state.photos.length - 1,
+      });
+    }
+
+    this.setState(prevState => ({
+      currentIndex: prevState.currentIndex - 1,
+    }));
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+  
+  fetchPhoto(id) {
+    return fetch(`photos/${id}`)
       .then (function(response) {
         return response.json();
       })
@@ -57,7 +92,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchPhoto()
+    this.fetchPhoto(2)
       .then((val) => {
         this.setState({ photos: JSON.parse(val) });
         console.log(val);
@@ -67,10 +102,16 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
-    
-        </div>
-        <PhotoGrid photos={this.state.photos} />
+        <Modal 
+        state={this.state} 
+        closeModal={this.closeModal} 
+        nextClick={this.nextClick} 
+        prevClick={this.prevClick}
+        />
+        <PhotoGrid 
+        photos={this.state.photos} 
+        openModal={this.openModal}
+        />
       </div>
     );
   }
