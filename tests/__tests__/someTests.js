@@ -11,7 +11,7 @@ const photoArray = ["https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg", "htt
 const shortPhotoArray = [{
   "id": 1,
   "propertyID": 1,
-  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/5.jpg",
   "description": "Nestled zen in coastal Silicon Valley"
 },
 {
@@ -23,19 +23,19 @@ const shortPhotoArray = [{
 {
   "id": 3,
   "propertyID": 1,
-  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/5.jpg",
   "description": "Nestled zen in coastal Los Angeles"
 },
 {
   "id": 4,
   "propertyID": 1,
-  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/5.jpg",
   "description": "Nestled zen in coastal Los Angeles"
 },
 {
   "id": 5,
   "propertyID": 1,
-  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/5.jpg",
   "description": "Lovely retreat in heart of Silicon Valley"
 }];
 
@@ -54,19 +54,23 @@ describe('render photos', () => {
 
   test('state should be passed in', () => {
     const wrapper = shallow(<PhotoGrid photos={shortPhotoArray} />);
-    expect(wrapper.find('img').at(1).toContain("https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg"));
+    const url = 'https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg'; // expect(logo.find("img").prop("src")).toEqual(logoImage)
+    // console.log('HOASDFLIAERJN AKS DHUFAKSDJNAHDJHSDKJVNXCHSEDFO', wrapper.find("#img1").prop("src"));
+    expect(wrapper.find("#img1").prop("src")).toEqual("https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg");
   });
-
 });
 
 describe('clicks', () => {
   test('should change state', () => {
-    const wrapper = shallow(<App photos={photosFive} />, { disableLifecycleMethods: true });
+    const wrapper = shallow(<App photos={photosFive} />, { disableLifecycleMethods: true });  
     expect(wrapper.state('currentIndex')).toBe(0);
     wrapper.instance().nextClick();
     expect(wrapper.state('currentIndex')).toBe(1);
   });
 
+  // test('should carousel slideshow photos at end', () => {
+
+  // });
 });
 
 // mount / shallow - just the component no children
