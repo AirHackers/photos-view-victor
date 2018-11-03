@@ -17,13 +17,25 @@ const shortPhotoArray = [{
 {
   "id": 2,
   "propertyID": 1,
-  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg",
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
   "description": "Nestled zen in coastal Los Angeles"
 },
 {
   "id": 3,
   "propertyID": 1,
-  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/3.jpg",
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
+  "description": "Nestled zen in coastal Los Angeles"
+},
+{
+  "id": 4,
+  "propertyID": 1,
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
+  "description": "Nestled zen in coastal Los Angeles"
+},
+{
+  "id": 5,
+  "propertyID": 1,
+  "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg",
   "description": "Lovely retreat in heart of Silicon Valley"
 }];
 
