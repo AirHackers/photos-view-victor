@@ -57,8 +57,8 @@ class App extends React.Component {
   nextClick() {
     if (this.state.currentIndex === this.state.photos.length - 1) {
       return this.setState({
-        currentIndex: 1,
-      })
+        currentIndex: 0,
+      });
     }
 
     this.setState(prevState => ({
@@ -67,6 +67,12 @@ class App extends React.Component {
   }
   
   previousClick() {
+    if (this.state.currentIndex === 0) {
+      return this.setState({
+        currentIndex: this.state.photos.length - 1,
+      });
+    }
+
     this.setState(prevState => ({
       currentIndex: prevState.currentIndex - 1,
     }));
@@ -80,8 +86,8 @@ class App extends React.Component {
     this.setState({modalIsOpen: false});
   }
   
-  fetchPhoto() {
-    return fetch('/photos/1')
+  fetchPhoto(id) {
+    return fetch(`photos/${id}`)
       .then (function(response) {
         return response.json();
       })
@@ -92,7 +98,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchPhoto()
+    this.fetchPhoto(2)
       .then((val) => {
         this.setState({ photos: JSON.parse(val) });
         console.log(val);
@@ -104,12 +110,14 @@ class App extends React.Component {
       <div>
         <Modal 
         state={this.state} 
-        openModal={this.openModal} 
         closeModal={this.closeModal} 
         nextClick={this.nextClick} 
         prevClick={this.prevClick}
         />
-        <PhotoGrid photos={this.state.photos} />
+        <PhotoGrid 
+        photos={this.state.photos} 
+        openModal={this.openModal}
+        />
       </div>
     );
   }

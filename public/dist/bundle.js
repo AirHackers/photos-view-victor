@@ -182,7 +182,7 @@ function (_React$Component) {
     value: function nextClick() {
       if (this.state.currentIndex === this.state.photos.length - 1) {
         return this.setState({
-          currentIndex: 1
+          currentIndex: 0
         });
       }
 
@@ -195,6 +195,12 @@ function (_React$Component) {
   }, {
     key: "previousClick",
     value: function previousClick() {
+      if (this.state.currentIndex === 0) {
+        return this.setState({
+          currentIndex: this.state.photos.length - 1
+        });
+      }
+
       this.setState(function (prevState) {
         return {
           currentIndex: prevState.currentIndex - 1
@@ -217,8 +223,8 @@ function (_React$Component) {
     }
   }, {
     key: "fetchPhoto",
-    value: function fetchPhoto() {
-      return fetch('/photos/1').then(function (response) {
+    value: function fetchPhoto(id) {
+      return fetch("photos/".concat(id)).then(function (response) {
         return response.json();
       }).then(function (myJson) {
         return JSON.stringify(myJson);
@@ -231,7 +237,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.fetchPhoto().then(function (val) {
+      this.fetchPhoto(2).then(function (val) {
         _this2.setState({
           photos: JSON.parse(val)
         });
@@ -244,12 +250,12 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_newModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
         state: this.state,
-        openModal: this.openModal,
         closeModal: this.closeModal,
         nextClick: this.nextClick,
         prevClick: this.prevClick
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photoGrid__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        photos: this.state.photos
+        photos: this.state.photos,
+        openModal: this.openModal
       }));
     }
   }]);
@@ -284,11 +290,7 @@ __webpack_require__.r(__webpack_exports__);
 react_modal__WEBPACK_IMPORTED_MODULE_2___default.a.setAppElement('#app');
 
 var Modal = function Modal(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return props.openModal();
-    }
-  }, "modal example button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
     isOpen: props.state.modalIsOpen,
     onRequestClose: props.closeModal,
     className: "Modal"
@@ -298,16 +300,48 @@ var Modal = function Modal(props) {
     className: "backArrow",
     onClick: props.prevClick
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: props.prevClick
-  }, "back")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    type: "button",
+    id: "backArrow",
+    "aria-label": "Previous"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    viewBox: "0 0 18 18",
+    role: "presentation",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z",
+    fillRule: "evenodd"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nextArrow",
     onClick: props.nextClick
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "forward")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    id: "modal-close-button",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    id: "nextArrow",
+    "aria-label": "Next"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    viewBox: "0 0 18 18",
+    role: "presentation",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z",
+    fillRule: "evenodd"
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
     onClick: function onClick() {
       return props.closeModal();
-    }
-  }, "Close modal")));
+    },
+    id: "closeModal",
+    "aria-busy": "false"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    viewBox: "0 0 24 24",
+    role: "img",
+    "aria-label": "Close",
+    focusable: "false"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22",
+    fillRule: "evenodd"
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Modal);
@@ -335,30 +369,50 @@ var PhotoGrid = function PhotoGrid(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "main",
     alt: "Main Image",
+    onClick: function onClick() {
+      return props.openModal();
+    },
     src: props.photos[0].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "img1"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "img1",
     alt: "Photo1",
+    onClick: function onClick() {
+      return props.openModal();
+    },
     src: props.photos[1].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "img2"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "img2",
     alt: "Photo2",
+    onClick: function onClick() {
+      return props.openModal();
+    },
     src: props.photos[2].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "img3"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "img3",
     alt: "Photo3",
+    onClick: function onClick() {
+      return props.openModal();
+    },
     src: props.photos[3].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "img4"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    id: "view-photos-btn",
+    onClick: function onClick() {
+      return props.openModal();
+    }
+  }, "View Photos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "img4",
     alt: "Photo4",
+    onClick: function onClick() {
+      return props.openModal();
+    },
     src: props.photos[4].url
   })));
 };
@@ -383,9 +437,14 @@ __webpack_require__.r(__webpack_exports__);
 var SlideShow = function SlideShow(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "slideshow-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "ss-img-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "ss-img",
     src: props.state.photos[props.state.currentIndex].url
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.state.photos[props.state.currentIndex].description));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "ss-ptag"
+  }, props.state.currentIndex + 1, "/", props.state.photos.length, ": ", props.state.photos[props.state.currentIndex].description));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SlideShow);
