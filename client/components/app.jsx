@@ -13,45 +13,39 @@ class App extends React.Component {
       photos: [{
         "id": 1,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Nestled zen in coastal Silicon Valley"
       },
       {
         "id": 2,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/3.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Nestled zen in coastal Los Angeles"
       },
       {
         "id": 3,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/6.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Lovely retreat in heart of Silicon Valley"
       },
       {
         "id": 4,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Desirable sanctuary in downtown Los Angeles"
       },
       {
         "id": 445,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/4.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Sunny retreat in heart of Community"
-      },
-      {
-        "id": 446,
-        "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
-        "description": "Cozy shared apartment in downtown Community"
       }],
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.nextClick = this.nextClick.bind(this);
-    this.previousClick = this.previousClick.bind(this);
+    this.prevClick = this.prevClick.bind(this);
   }
 
   nextClick() {
@@ -66,7 +60,7 @@ class App extends React.Component {
     }));
   }
   
-  previousClick() {
+  prevClick() {
     if (this.state.currentIndex === 0) {
       return this.setState({
         currentIndex: this.state.photos.length - 1,

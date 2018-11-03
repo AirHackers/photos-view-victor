@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 import SlideShow from './slideshow';
 
-ReactModal.setAppElement('#app');
-
 const Modal = (props) => {
   return (
     <div>

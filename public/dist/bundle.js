@@ -141,39 +141,34 @@ function (_React$Component) {
       photos: [{
         "id": 1,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Nestled zen in coastal Silicon Valley"
       }, {
         "id": 2,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/3.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Nestled zen in coastal Los Angeles"
       }, {
         "id": 3,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/6.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Lovely retreat in heart of Silicon Valley"
       }, {
         "id": 4,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Desirable sanctuary in downtown Los Angeles"
       }, {
         "id": 445,
         "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/4.jpg",
+        "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Sunny retreat in heart of Community"
-      }, {
-        "id": 446,
-        "propertyID": 1,
-        "url": "https://s3-us-west-1.amazonaws.com/wanderlodge/14.jpg",
-        "description": "Cozy shared apartment in downtown Community"
       }]
     };
     _this.openModal = _this.openModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.nextClick = _this.nextClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.previousClick = _this.previousClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.prevClick = _this.prevClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -193,8 +188,8 @@ function (_React$Component) {
       });
     }
   }, {
-    key: "previousClick",
-    value: function previousClick() {
+    key: "prevClick",
+    value: function prevClick() {
       if (this.state.currentIndex === 0) {
         return this.setState({
           currentIndex: this.state.photos.length - 1
@@ -287,7 +282,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_modal__WEBPACK_IMPORTED_MODULE_2___default.a.setAppElement('#app');
 
 var Modal = function Modal(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
