@@ -278,12 +278,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _slideshow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slideshow */ "./client/components/slideshow.jsx");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
+
+if (true) react_modal__WEBPACK_IMPORTED_MODULE_2___default.a.setAppElement('#app');
 
 var Modal = function Modal(props) {
+  var _React$createElement;
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
     isOpen: props.state.modalIsOpen,
     onRequestClose: props.closeModal,
@@ -320,14 +325,13 @@ var Modal = function Modal(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z",
     fillRule: "evenodd"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", (_React$createElement = {
     type: "button",
+    id: "closeButton",
     onClick: function onClick() {
       return props.closeModal();
-    },
-    id: "closeModal",
-    "aria-busy": "false"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    }
+  }, _defineProperty(_React$createElement, "id", "closeModal"), _defineProperty(_React$createElement, "aria-busy", "false"), _React$createElement), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
     viewBox: "0 0 24 24",
     role: "img",
     "aria-label": "Close",
