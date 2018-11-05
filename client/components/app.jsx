@@ -81,7 +81,7 @@ class PMApp extends React.Component {
   }
   
   fetchPhoto(id) {
-    return fetch(`photos/${id}`)
+    return fetch(`http://localhost:3002/photos/${id}`)
       .then (function(response) {
         return response.json();
       })
@@ -92,7 +92,7 @@ class PMApp extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchPhoto(2)
+    this.fetchPhoto(1)
       .then((val) => {
         this.setState({ photos: JSON.parse(val) });
         console.log(val);

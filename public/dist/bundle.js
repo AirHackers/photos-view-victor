@@ -219,7 +219,7 @@ function (_React$Component) {
   }, {
     key: "fetchPhoto",
     value: function fetchPhoto(id) {
-      return fetch("photos/".concat(id)).then(function (response) {
+      return fetch("http://localhost:3002/photos/".concat(id)).then(function (response) {
         return response.json();
       }).then(function (myJson) {
         return JSON.stringify(myJson);
@@ -232,7 +232,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.fetchPhoto(2).then(function (val) {
+      this.fetchPhoto(1).then(function (val) {
         _this2.setState({
           photos: JSON.parse(val)
         });
