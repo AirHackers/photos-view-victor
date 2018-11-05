@@ -99,7 +99,7 @@
 
 #pm-view-photos-btn {
   position: absolute;
-  bottom: 20px;
+  bottom: 380px;
   right: 20px;
   
 }
@@ -171,6 +171,9 @@
   background-color: #262626;
   outline: none;
   border-color: #262626;
+  position: absolute;
+  top: 400px;
+  right: 20px;
 }
 
 #pm-backArrow {
@@ -180,14 +183,17 @@
   background-color: #262626;
   outline: none;
   border-color: #262626;
+  position: absolute;
+  top: 400px;
+  right: 20px;
 }
 
 #pm-closeModal {
   height: 40px; 
   width: 40px; 
   position: absolute;
-  top: 0; 
-  right: 0;
+  top: 20px; 
+  right: 20px;
   fill: rgb(255, 255, 255);
   background-color: #262626;
   outline: none;
