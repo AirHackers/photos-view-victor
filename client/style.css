@@ -199,24 +199,3 @@
   outline: none;
   border-color: #262626;
 }
-/************************ FOR LATER USE ************************/
-
-/* 
-.button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-} 
-
-const customStyles = {
-  content : {
-    position              : absolute;
-    top                   : '100%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-}; */
-
