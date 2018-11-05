@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PhotoGrid from './photoGrid';
 import Modal from './newModal';
 
-class App extends React.Component {
+class PMApp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -117,4 +117,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default PMApp;

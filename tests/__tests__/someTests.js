@@ -3,7 +3,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import { shallow, mount, render } from 'enzyme';
 import PhotoGrid from '../../client/components/photoGrid';
-import App from '../../client/components/app';
+import PMApp from '../../client/components/app';
 import SlideShow from '../../client/components/slideshow';
 import Modal from '../../client/components/newModal';
 import fetch from 'isomorphic-fetch';
@@ -91,7 +91,7 @@ describe('render photos', () => {
   });
 
   test('should include a stock image if no photo is provided to state', () => {
-    const wrapper = shallow(<App />, { disableLifecycleMethods: true });
+    const wrapper = shallow(<PMApp />, { disableLifecycleMethods: true });
     expect(wrapper.state().photos[1].url).toEqual("https://wallpapercave.com/wp/HsM0IHh.jpg");
   });
 
@@ -123,61 +123,61 @@ describe('render photos', () => {
 
 describe('clicks', () => {
   test('should change state', () => {
-    const wrapper = shallow(<App photos={photosFive} />, { disableLifecycleMethods: true });  
+    const wrapper = shallow(<PMApp photos={photosFive} />, { disableLifecycleMethods: true });  
     expect(wrapper.state('currentIndex')).toBe(0);
     wrapper.instance().nextClick();
     expect(wrapper.state('currentIndex')).toBe(1);
   });
 
   test('modal should pop up when state for modal is true', () => {
-    const wrapper = shallow(<App />, { disableLifecycleMethods: true });
+    const wrapper = shallow(<PMApp />, { disableLifecycleMethods: true });
     wrapper.instance().openModal();
     expect(wrapper.state('modalIsOpen')).toBe(true);
   });
 
   test('should carousel backwards', () => {
-    const wrapper = shallow(<App />, {disableLifecycleMethods: true});
+    const wrapper = shallow(<PMApp />, {disableLifecycleMethods: true});
     wrapper.instance().prevClick();
     expect(wrapper.state('currentIndex')).toBe(4);
   });
 
   test('should invoke onclick function in img when clicked', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<PMApp />);
     expect(wrapper.state().modalIsOpen).toBe(false);
     wrapper.find('#main').simulate('click');
     expect(wrapper.state().modalIsOpen).toBe(true);
   });
 
   test('should invoke onclick function in img when clicked', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<PMApp />);
     expect(wrapper.state().modalIsOpen).toBe(false);
     wrapper.find('#img1').simulate('click');
     expect(wrapper.state().modalIsOpen).toBe(true);
   });
 
   test('should invoke onclick function in img when clicked', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<PMApp />);
     expect(wrapper.state().modalIsOpen).toBe(false);
     wrapper.find('#img2').simulate('click');
     expect(wrapper.state().modalIsOpen).toBe(true);
   });
 
   test('should invoke onclick function in img when clicked', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<PMApp />);
     expect(wrapper.state().modalIsOpen).toBe(false);
     wrapper.find('#img3').simulate('click');
     expect(wrapper.state().modalIsOpen).toBe(true);
   });
 
   test('should invoke onclick function in img when clicked', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<PMApp />);
     expect(wrapper.state().modalIsOpen).toBe(false);
     wrapper.find('#img4').simulate('click');
     expect(wrapper.state().modalIsOpen).toBe(true);
   });
 
   test('should invoke close function for close button', () => {
-    const wrapper = mount(<App />);
+    const wrapper = mount(<PMApp />);
     expect(wrapper.state().modalIsOpen).toBe(true);
     wrapper.find('#closeButton').simulate('click');
     expect(wrapper.state().modalIsOpen).toBe(false);
@@ -199,7 +199,7 @@ describe('slideshow component', () => {
 
 describe('state', () => {
   test('state should have 5 stocks photos', () => {
-    const wrapper = shallow(<App />, {disableLifecycleMethods: true});
+    const wrapper = shallow(<PMApp />, {disableLifecycleMethods: true});
     expect(wrapper.state('photos').length).toBe(5);
   });
 

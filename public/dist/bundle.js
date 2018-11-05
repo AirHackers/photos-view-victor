@@ -124,17 +124,17 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var App =
+var PMApp =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(App, _React$Component);
+  _inherits(PMApp, _React$Component);
 
-  function App(props) {
+  function PMApp(props) {
     var _this;
 
-    _classCallCheck(this, App);
+    _classCallCheck(this, PMApp);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PMApp).call(this, props));
     _this.state = {
       modalIsOpen: false,
       currentIndex: 0,
@@ -172,7 +172,7 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(App, [{
+  _createClass(PMApp, [{
     key: "nextClick",
     value: function nextClick() {
       if (this.state.currentIndex === this.state.photos.length - 1) {
@@ -255,10 +255,10 @@ function (_React$Component) {
     }
   }]);
 
-  return App;
+  return PMApp;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+/* harmony default export */ __webpack_exports__["default"] = (PMApp);
 
 /***/ }),
 
