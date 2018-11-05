@@ -284,7 +284,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-if (true) react_modal__WEBPACK_IMPORTED_MODULE_2___default.a.setAppElement('#app');
+if (true) react_modal__WEBPACK_IMPORTED_MODULE_2___default.a.setAppElement('#pm-app');
 
 var NewModal = function NewModal(props) {
   var _React$createElement;
@@ -292,15 +292,15 @@ var NewModal = function NewModal(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
     isOpen: props.state.modalIsOpen,
     onRequestClose: props.closeModal,
-    className: "Modal"
+    className: "pm-Modal"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_slideshow__WEBPACK_IMPORTED_MODULE_3__["default"], {
     state: props.state
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "backArrow",
+    className: "pm-backArrow",
     onClick: props.prevClick
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    id: "backArrow",
+    id: "pm-backArrow",
     "aria-label": "Previous"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
     viewBox: "0 0 18 18",
@@ -311,11 +311,11 @@ var NewModal = function NewModal(props) {
     d: "m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z",
     fillRule: "evenodd"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nextArrow",
+    className: "pm-nextArrow",
     onClick: props.nextClick
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    id: "nextArrow",
+    id: "pm-nextArrow",
     "aria-label": "Next"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
     viewBox: "0 0 18 18",
@@ -327,11 +327,11 @@ var NewModal = function NewModal(props) {
     fillRule: "evenodd"
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", (_React$createElement = {
     type: "button",
-    id: "closeButton",
+    id: "pm-closeButton",
     onClick: function onClick() {
       return props.closeModal();
     }
-  }, _defineProperty(_React$createElement, "id", "closeModal"), _defineProperty(_React$createElement, "aria-busy", "false"), _React$createElement), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+  }, _defineProperty(_React$createElement, "id", "pm-closeModal"), _defineProperty(_React$createElement, "aria-busy", "false"), _React$createElement), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
     viewBox: "0 0 24 24",
     role: "img",
     "aria-label": "Close",
@@ -361,52 +361,52 @@ __webpack_require__.r(__webpack_exports__);
 
 var PhotoGrid = function PhotoGrid(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "grid-container"
+    className: "pm-grid-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main"
+    className: "pm-main"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "main",
+    id: "pm-main",
     alt: "Main Image",
     onClick: function onClick() {
       return props.openModal();
     },
     src: props.photos[0].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "img1"
+    className: "pm-img1"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "img1",
+    id: "pm-img1",
     alt: "Photo1",
     onClick: function onClick() {
       return props.openModal();
     },
     src: props.photos[1].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "img2"
+    className: "pm-img2"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "img2",
+    id: "pm-img2",
     alt: "Photo2",
     onClick: function onClick() {
       return props.openModal();
     },
     src: props.photos[2].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "img3"
+    className: "pm-img3"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "img3",
+    id: "pm-img3",
     alt: "Photo3",
     onClick: function onClick() {
       return props.openModal();
     },
     src: props.photos[3].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "img4"
+    className: "pm-img4"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    id: "view-photos-btn",
+    id: "pm-view-photos-btn",
     onClick: function onClick() {
       return props.openModal();
     }
   }, "View Photos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "img4",
+    id: "pm-img4",
     alt: "Photo4",
     onClick: function onClick() {
       return props.openModal();
@@ -434,14 +434,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var SlideShow = function SlideShow(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "slideshow-container"
+    id: "pm-slideshow-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "ss-img-container"
+    id: "pm-ss-img-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "ss-img",
+    id: "pm-ss-img",
     src: props.state.photos[props.state.currentIndex].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    id: "ss-ptag"
+    id: "pm-ss-ptag"
   }, props.state.currentIndex + 1, "/", props.state.photos.length, ": ", props.state.photos[props.state.currentIndex].description));
 };
 
@@ -469,7 +469,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('app'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('pm-app'));
 
 /***/ }),
 
@@ -511,7 +511,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "/************************ PHOTO GRID ************************/\n.grid-container {\n  display: grid;\n  height: auto;\n  width: 100%;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  grid-template-rows: 1fr 1fr 1fr 1fr;\n  grid-template-areas: \"main main img1 img2\" \"main main img3 img4\" \". . . .\" \". . . .\";\n}\n\n#main {           \n  height: 100%;\n  width: 100%;\n  z-index: -1;\n}\n/* \n#main:hover {           \n  height: 100%;\n  width: 100%;\n  transform: scale(1.1); \n  z-index: -1;\n} */\n\n#img1 { \n  height: 100%;\n  width: 100%;\n}\n\n#img2 { \n  height: 100%;\n  width: 100%;\n}\n\n#img3 { \n  height: 100%;\n  width: 100%;\n}\n\n#img4 { \n  height: 100%;\n  width: 100%;\n}\n\n.main {\n  grid-area: main;\n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n  z-index: 0;\n}\n\n.img1 {\n  grid-area: img1; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n.img2 { \n  grid-area: img2; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n.img3 { \n  grid-area: img3; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n.img4 { \n  grid-area: img4; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n#view-photos-btn {\n  position: absolute;\n  bottom: 20px;\n  right: 20px;\n}\n\n/************************ SLIDE SHOW ************************/\n#slideshow-container {\n  margin-top: 80px;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 50%;\n}\n\n#ss-main {\n  width: 944px;\n  height: 632px;\n}\n\n#ss-img-container {\n  width: 944px;\n  height: 632px;\n}\n\n#ss-img {\n  width: 944px;\n  height: 632px;\n}\n\n#ss-ptag {\n  font-family: Circular,\"Helvetica Neue\";\n  font-size: 14px;\n  color: white;\n  margin-top: 100px;\n}\n\n/************************    MODAL    ************************/\n.Modal {\n  background-color: #262626;\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  top: 0;\n  left: 0;\n  position: fixed;\n  z-index: 1;\n  height: 100%;\n  overflow: auto;\n}\n\n.nextArrow {\n  float: right;\n  justify-content: center;\n  display: flex;\n  z-index: 1;\n}\n\n.backArrow {\n  float: left;\n  justify-content: center;\n  display: flex;\n  z-index: 1;\n}\n\n#nextArrow {\n  height: 4.8em; \n  width: 4.8em; \n  fill: rgb(255, 255, 255);\n  background-color: #262626;\n  outline: none;\n  border-color: #262626;\n}\n\n#backArrow {\n  height: 4.8em; \n  width: 4.8em; \n  fill: rgb(255, 255, 255);\n  background-color: #262626;\n  outline: none;\n  border-color: #262626;\n}\n\n#closeModal {\n  height: 40px; \n  width: 40px; \n  position: absolute;\n  top: 0; \n  right: 0;\n  fill: rgb(255, 255, 255);\n  background-color: #262626;\n  outline: none;\n  border-color: #262626;\n}\n/************************ FOR LATER USE ************************/\n\n/* \n.button {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n} \n\nconst customStyles = {\n  content : {\n    position              : absolute;\n    top                   : '100%',\n    left                  : '50%',\n    right                 : 'auto',\n    bottom                : 'auto',\n    marginRight           : '-50%',\n    transform             : 'translate(-50%, -50%)'\n  }\n}; */\n\n", ""]);
+exports.push([module.i, "/************************ PHOTO GRID ************************/\n.pm-grid-container {\n  display: grid;\n  height: auto;\n  width: 100%;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  grid-template-rows: 1fr 1fr 1fr 1fr;\n  grid-template-areas: \"main main img1 img2\" \"main main img3 img4\" \". . . .\" \". . . .\";\n}\n\n#pm-main {           \n  height: 100%;\n  width: 100%;\n  z-index: -1;\n}\n/* \n#main:hover {           \n  height: 100%;\n  width: 100%;\n  transform: scale(1.1); \n  z-index: -1;\n} */\n\n#pm-img1 { \n  height: 100%;\n  width: 100%;\n}\n\n#pm-img2 { \n  height: 100%;\n  width: 100%;\n}\n\n#pm-img3 { \n  height: 100%;\n  width: 100%;\n}\n\n#pm-img4 { \n  height: 100%;\n  width: 100%;\n}\n\n.pm-main {\n  grid-area: main;\n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n  z-index: 0;\n}\n\n.pm-img1 {\n  grid-area: img1; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n.pm-img2 { \n  grid-area: img2; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n.pm-img3 { \n  grid-area: img3; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n.pm-img4 { \n  grid-area: img4; \n  border-color: #484848;\n  border-style: solid;\n  border-width: 2px 2px 2px 2px;\n  width: 100%;\n  height: 100%; \n  margin: 0;\n  padding: 0;\n}\n\n#pm-view-photos-btn {\n  position: absolute;\n  bottom: 20px;\n  right: 20px;\n  \n}\n\n/************************ SLIDE SHOW ************************/\n#pm-slideshow-container {\n  margin-top: 80px;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 50%;\n}\n\n#pm-ss-main {\n  width: 944px;\n  height: 632px;\n}\n\n#pm-ss-img-container {\n  width: 944px;\n  height: 632px;\n}\n\n#pm-ss-img {\n  width: 944px;\n  height: 632px;\n}\n\n#pm-ss-ptag {\n  font-family: Circular,\"Helvetica Neue\";\n  font-size: 14px;\n  color: white;\n  margin-top: 100px;\n}\n\n/************************    MODAL    ************************/\n.pm-Modal {\n  background-color: #262626;\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  top: 0;\n  left: 0;\n  position: fixed;\n  z-index: 1;\n  height: 100%;\n  overflow: auto;\n}\n\n.pm-nextArrow {\n  float: right;\n  justify-content: center;\n  display: flex;\n  z-index: 1;\n}\n\n.pm-backArrow {\n  float: left;\n  justify-content: center;\n  display: flex;\n  z-index: 1;\n}\n\n#pm-nextArrow {\n  height: 4.8em; \n  width: 4.8em; \n  fill: rgb(255, 255, 255);\n  background-color: #262626;\n  outline: none;\n  border-color: #262626;\n}\n\n#pm-backArrow {\n  height: 4.8em; \n  width: 4.8em; \n  fill: rgb(255, 255, 255);\n  background-color: #262626;\n  outline: none;\n  border-color: #262626;\n}\n\n#pm-closeModal {\n  height: 40px; \n  width: 40px; \n  position: absolute;\n  top: 0; \n  right: 0;\n  fill: rgb(255, 255, 255);\n  background-color: #262626;\n  outline: none;\n  border-color: #262626;\n}\n/************************ FOR LATER USE ************************/\n\n/* \n.button {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n} \n\nconst customStyles = {\n  content : {\n    position              : absolute;\n    top                   : '100%',\n    left                  : '50%',\n    right                 : 'auto',\n    bottom                : 'auto',\n    marginRight           : '-50%',\n    transform             : 'translate(-50%, -50%)'\n  }\n}; */\n\n", ""]);
 
 // exports
 

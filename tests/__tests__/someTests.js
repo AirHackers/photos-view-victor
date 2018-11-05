@@ -8,7 +8,7 @@ import SlideShow from '../../client/components/slideshow';
 import NewModal from '../../client/components/newModal';
 import fetch from 'isomorphic-fetch';
 
-if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#app');
+if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#pm-app');
 
 const photoArray = ["https://s3-us-west-1.amazonaws.com/wanderlodge/1.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/2.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/3.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/4.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/5.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/6.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/7.jpg",  "https://s3-us-west-1.amazonaws.com/wanderlodge/8.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/9.jpg",  "https://s3-us-west-1.amazonaws.com/wanderlodge/10.jpg", "https://s3-us-west-1.amazonaws.com/wanderlodge/11.jpg"];
 
