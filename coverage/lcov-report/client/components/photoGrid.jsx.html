@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/8</span>
+        <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>6/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/8</span>
+        <span class='fraction'>7/8</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -74,23 +74,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,20 +104,20 @@ const PhotoGrid = (props) =&gt; {
   return(
     &lt;div className="grid-container"&gt;
       &lt;div className="main"&gt;
-        &lt;img id="main" alt="Main Image" onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;(<span class="cstat-no" title="statement not covered" >props.openModal())</span>} src={props.photos[0].url}/&gt;
+        &lt;img id="main" alt="Main Image" onClick={()=&gt;(props.openModal())} src={props.photos[0].url}/&gt;
       &lt;/div&gt;
       &lt;div className="img1"&gt;
-        &lt;img id="img1" alt="Photo1" onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;(<span class="cstat-no" title="statement not covered" >props.openModal())</span>} src={props.photos[1].url}/&gt;
+        &lt;img id="img1" alt="Photo1" onClick={()=&gt;(props.openModal())} src={props.photos[1].url}/&gt;
       &lt;/div&gt;
       &lt;div className="img2"&gt;
-        &lt;img id="img2" alt="Photo2" onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;(<span class="cstat-no" title="statement not covered" >props.openModal())</span>} src={props.photos[2].url}/&gt;
+        &lt;img id="img2" alt="Photo2" onClick={()=&gt;(props.openModal())} src={props.photos[2].url}/&gt;
       &lt;/div&gt;
       &lt;div className="img3"&gt;
-        &lt;img id="img3" alt="Photo3" onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;(<span class="cstat-no" title="statement not covered" >props.openModal())</span>} src={props.photos[3].url}/&gt;
+        &lt;img id="img3" alt="Photo3" onClick={()=&gt;(props.openModal())} src={props.photos[3].url}/&gt;
       &lt;/div&gt;
       &lt;div className="img4"&gt;
         &lt;button id="view-photos-btn" onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;(<span class="cstat-no" title="statement not covered" >props.openModal())</span>}&gt;View Photos&lt;/button&gt;
-        &lt;img id="img4" alt="Photo4" onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;(<span class="cstat-no" title="statement not covered" >props.openModal())</span>} src={props.photos[4].url}/&gt;
+        &lt;img id="img4" alt="Photo4" onClick={()=&gt;(props.openModal())} src={props.photos[4].url}/&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   );
@@ -130,7 +130,7 @@ export default PhotoGrid;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 02 2018 23:51:36 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Nov 03 2018 17:43:16 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

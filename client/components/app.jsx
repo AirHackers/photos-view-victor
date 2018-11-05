@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PhotoGrid from './photoGrid';
-import Modal from './newModal';
+import NewModal from './newModal';
 
-class App extends React.Component {
+class PMApp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -102,7 +102,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Modal 
+        <NewModal 
         state={this.state} 
         closeModal={this.closeModal} 
         nextClick={this.nextClick} 
@@ -117,4 +117,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default PMApp;

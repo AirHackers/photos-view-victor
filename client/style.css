@@ -1,5 +1,5 @@
 /************************ PHOTO GRID ************************/
-.grid-container {
+.pm-grid-container {
   display: grid;
   height: auto;
   width: 100%;
@@ -8,7 +8,7 @@
   grid-template-areas: "main main img1 img2" "main main img3 img4" ". . . ." ". . . .";
 }
 
-#main {           
+#pm-main {           
   height: 100%;
   width: 100%;
   z-index: -1;
@@ -21,27 +21,27 @@
   z-index: -1;
 } */
 
-#img1 { 
+#pm-img1 { 
   height: 100%;
   width: 100%;
 }
 
-#img2 { 
+#pm-img2 { 
   height: 100%;
   width: 100%;
 }
 
-#img3 { 
+#pm-img3 { 
   height: 100%;
   width: 100%;
 }
 
-#img4 { 
+#pm-img4 { 
   height: 100%;
   width: 100%;
 }
 
-.main {
+.pm-main {
   grid-area: main;
   border-color: #484848;
   border-style: solid;
@@ -53,7 +53,7 @@
   z-index: 0;
 }
 
-.img1 {
+.pm-img1 {
   grid-area: img1; 
   border-color: #484848;
   border-style: solid;
@@ -64,7 +64,7 @@
   padding: 0;
 }
 
-.img2 { 
+.pm-img2 { 
   grid-area: img2; 
   border-color: #484848;
   border-style: solid;
@@ -75,7 +75,7 @@
   padding: 0;
 }
 
-.img3 { 
+.pm-img3 { 
   grid-area: img3; 
   border-color: #484848;
   border-style: solid;
@@ -86,7 +86,7 @@
   padding: 0;
 }
 
-.img4 { 
+.pm-img4 { 
   grid-area: img4; 
   border-color: #484848;
   border-style: solid;
@@ -97,14 +97,15 @@
   padding: 0;
 }
 
-#view-photos-btn {
+#pm-view-photos-btn {
   position: absolute;
-  bottom: 20px;
+  bottom: 380px;
   right: 20px;
+  
 }
 
 /************************ SLIDE SHOW ************************/
-#slideshow-container {
+#pm-slideshow-container {
   margin-top: 80px;
   display: block;
   margin-left: auto;
@@ -112,22 +113,22 @@
   width: 50%;
 }
 
-#ss-main {
+#pm-ss-main {
   width: 944px;
   height: 632px;
 }
 
-#ss-img-container {
+#pm-ss-img-container {
   width: 944px;
   height: 632px;
 }
 
-#ss-img {
+#pm-ss-img {
   width: 944px;
   height: 632px;
 }
 
-#ss-ptag {
+#pm-ss-ptag {
   font-family: Circular,"Helvetica Neue";
   font-size: 14px;
   color: white;
@@ -135,7 +136,7 @@
 }
 
 /************************    MODAL    ************************/
-.Modal {
+.pm-Modal {
   background-color: #262626;
   width: 100%;
   height: 100%;
@@ -149,67 +150,52 @@
   overflow: auto;
 }
 
-.nextArrow {
+.pm-nextArrow {
   float: right;
   justify-content: center;
   display: flex;
   z-index: 1;
 }
 
-.backArrow {
+.pm-backArrow {
   float: left;
   justify-content: center;
   display: flex;
   z-index: 1;
 }
 
-#nextArrow {
+#pm-nextArrow {
   height: 4.8em; 
   width: 4.8em; 
   fill: rgb(255, 255, 255);
   background-color: #262626;
   outline: none;
   border-color: #262626;
+  position: absolute;
+  top: 400px;
+  right: 20px;
 }
 
-#backArrow {
+#pm-backArrow {
   height: 4.8em; 
   width: 4.8em; 
   fill: rgb(255, 255, 255);
   background-color: #262626;
   outline: none;
   border-color: #262626;
+  position: absolute;
+  top: 400px;
+  left: 20px;
 }
 
-#closeModal {
+#pm-closeModal {
   height: 40px; 
   width: 40px; 
   position: absolute;
-  top: 0; 
-  right: 0;
+  top: 20px; 
+  right: 20px;
   fill: rgb(255, 255, 255);
   background-color: #262626;
   outline: none;
   border-color: #262626;
 }
-/************************ FOR LATER USE ************************/
-
-/* 
-.button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-} 
-
-const customStyles = {
-  content : {
-    position              : absolute;
-    top                   : '100%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-}; */
-
