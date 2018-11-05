@@ -286,7 +286,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 if (true) react_modal__WEBPACK_IMPORTED_MODULE_2___default.a.setAppElement('#app');
 
-var Modal = function Modal(props) {
+var NewModal = function NewModal(props) {
   var _React$createElement;
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -342,7 +342,7 @@ var Modal = function Modal(props) {
   })))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Modal);
+/* harmony default export */ __webpack_exports__["default"] = (NewModal);
 
 /***/ }),
 

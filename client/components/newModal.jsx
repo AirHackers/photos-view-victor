@@ -5,7 +5,7 @@ import SlideShow from './slideshow';
 
 if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#app');
 
-const Modal = (props) => {
+const NewModal = (props) => {
   return (
     <div>
       <ReactModal
@@ -27,4 +27,4 @@ const Modal = (props) => {
   )
 }
 
-export default Modal;
+export default NewModal;

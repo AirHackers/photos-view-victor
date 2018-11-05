@@ -5,7 +5,7 @@ import { shallow, mount, render } from 'enzyme';
 import PhotoGrid from '../../client/components/photoGrid';
 import PMApp from '../../client/components/app';
 import SlideShow from '../../client/components/slideshow';
-import Modal from '../../client/components/newModal';
+import NewModal from '../../client/components/newModal';
 import fetch from 'isomorphic-fetch';
 
 if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#app');
@@ -207,7 +207,7 @@ describe('state', () => {
 
 describe('modal component', () => {
   test('state should have 5 stocks photos', () => {
-    const wrapper = shallow(<Modal />);
+    const wrapper = shallow(<NewModal />);
     expect(wrapper.find('.Modal').hasClass('.Modal')).toBe(true);
   });
 
