@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch",
+    "debug": "webpack --watch",
+    "build": "webpack --mode production --source-map=false",
     "seed": "node database/seed.js"
   },
   "author": "",
