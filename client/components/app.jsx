@@ -85,17 +85,13 @@ class PMApp extends React.Component {
       .then (function(response) {
         return response.json();
       })
-      .then (function(myJson) {
-        return JSON.stringify(myJson);
-      })
       .catch(err => {if (err) console.log(err)});
   }
 
   componentDidMount() {
     this.fetchPhoto(1)
       .then((val) => {
-        this.setState({ photos: JSON.parse(val) });
-        console.log(val);
+        this.setState({ photos: val });
       });
   }
 

@@ -18,9 +18,10 @@ const randomUrlGenerator = () => {
 // COLLECTION OF 100 RANDOMLY GENEREATED IMAGES AND DESCRIPTIONS
 const func = () => {
   const collection = [];
+  const MIN_NEEDED = 5;
   for (let i = 1; i < 101; i += 1) {
     // GENERATE RANDOM AMOUNT OF PICTURES
-    const randomAmount = Math.ceil(Math.random() * 8);
+    const randomAmount = Math.ceil(Math.random() * 3) + MIN_NEEDED;
     for (let e = 0; e < randomAmount; e += 1) {
       const image = {
         propertyID: i,
