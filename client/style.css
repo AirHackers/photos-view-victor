@@ -4,8 +4,7 @@
   height: auto;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "main main img1 img2" "main main img3 img4" ". . . ." ". . . .";
+  grid-template-areas: "main main img1 img2" "main main img3 img4";
 }
 
 #pm-main {           
