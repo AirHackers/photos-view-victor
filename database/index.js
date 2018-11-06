@@ -35,4 +35,4 @@ const getFromDB = (propertyID, callback) => {
   });
 };
 
-module.exports = (insertToDB, getFromDB);
+module.exports = {insertToDB, getFromDB};
