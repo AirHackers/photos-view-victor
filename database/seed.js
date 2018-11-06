@@ -20,7 +20,8 @@ const func = () => {
   const collection = [];
   for (let i = 1; i < 101; i += 1) {
     // GENERATE RANDOM AMOUNT OF PICTURES
-    const randomAmount = Math.ceil(Math.random() * 8);
+    const randomRange = Math.ceil(Math.random() * 16);
+    const randomAmount = randomRange + 5;
     for (let e = 0; e < randomAmount; e += 1) {
       const image = {
         propertyID: i,
