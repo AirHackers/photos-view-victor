@@ -30,21 +30,15 @@ const func = () => {
       collection.push(image);
     }
   }
-  console.log(collection);
   return collection;
 };
 
-const collectionLength = func().length;
-const collectionCount = 0;
 const collection = func();
+const collectionCount = 0;
 
 // INVOKE AND INSERT INTO DB
 collection.forEach(item => insertToDB(item, (err) => {
   if (err) {
     console.log(err);
-  }
-  collectionCount += 1;
-  if (collectionCount === collectionLength) {
-    process.exit();
-  }
+  } 
 }));
