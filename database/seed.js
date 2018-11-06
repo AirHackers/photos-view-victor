@@ -1,4 +1,4 @@
-const insertToDB = require('./index.js');
+const insertToDB = require('./index.js').insertToDB;
 
 // HELPER FUNCTIONS
 const descriptionGenerator = () => {
@@ -30,13 +30,15 @@ const func = () => {
       collection.push(image);
     }
   }
-  console.log(collection);
   return collection;
 };
 
+const collection = func();
+const collectionCount = 0;
+
 // INVOKE AND INSERT INTO DB
-func().forEach(item => insertToDB(item, (err) => {
+collection.forEach(item => insertToDB(item, (err) => {
   if (err) {
     console.log(err);
-  }
+  } 
 }));
