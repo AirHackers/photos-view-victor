@@ -8,13 +8,15 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use(function(req, res, next) {
+
+// Allow CORS for a given endpoint
+const allowCORS = function(res) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+}
 
 app.get('/:propertyID', (req, res) => {
+  allowCORS(res);
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
@@ -24,6 +26,7 @@ app.get('/photos/:propertyID', (req, res) => {
       res.status(400);
       res.send(err);
     } else {
+      allowCORS(res);
       res.status(200).send(results);
     }
   });

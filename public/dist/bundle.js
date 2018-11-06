@@ -233,7 +233,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var propertyId = window.location.pathname.slice(1);
+      var propertyId = window.location.pathname.slice(7);
       this.fetchPhoto(propertyId).then(function (val) {
         _this2.setState({
           photos: JSON.parse(val)
