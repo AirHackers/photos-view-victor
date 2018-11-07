@@ -159,7 +159,7 @@ function (_React$Component) {
         "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Desirable sanctuary in downtown Los Angeles"
       }, {
-        "id": 445,
+        "id": 5,
         "propertyID": 1,
         "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Sunny retreat in heart of Community"
@@ -169,10 +169,56 @@ function (_React$Component) {
     _this.closeModal = _this.closeModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.nextClick = _this.nextClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.prevClick = _this.prevClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setStateOne = _this.setStateOne.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setStateTwo = _this.setStateTwo.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setStateThree = _this.setStateThree.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setStateFour = _this.setStateFour.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.setStateFive = _this.setStateFive.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
-  }
+  } // set state to 
+
 
   _createClass(PMApp, [{
+    key: "setStateOne",
+    value: function setStateOne(event) {
+      this.setState({
+        currentIndex: 0,
+        modalIsOpen: true
+      });
+    }
+  }, {
+    key: "setStateTwo",
+    value: function setStateTwo(event) {
+      this.setState({
+        currentIndex: 1,
+        modalIsOpen: true
+      });
+    }
+  }, {
+    key: "setStateThree",
+    value: function setStateThree(event) {
+      this.setState({
+        currentIndex: 2,
+        modalIsOpen: true
+      });
+    }
+  }, {
+    key: "setStateFour",
+    value: function setStateFour(event) {
+      this.setState({
+        currentIndex: 3,
+        modalIsOpen: true
+      });
+    }
+  }, {
+    key: "setStateFive",
+    value: function setStateFive(event) {
+      this.setState({
+        currentIndex: 4,
+        modalIsOpen: true
+      });
+    }
+  }, {
     key: "nextClick",
     value: function nextClick() {
       if (this.state.currentIndex === this.state.photos.length - 1) {
@@ -204,9 +250,10 @@ function (_React$Component) {
     }
   }, {
     key: "openModal",
-    value: function openModal() {
+    value: function openModal(event) {
       this.setState({
-        modalIsOpen: true
+        modalIsOpen: true // currentIndex: this.id,
+
       });
     }
   }, {
@@ -251,7 +298,12 @@ function (_React$Component) {
         prevClick: this.prevClick
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photoGrid__WEBPACK_IMPORTED_MODULE_2__["default"], {
         photos: this.state.photos,
-        openModal: this.openModal
+        openModal: this.openModal,
+        setStateOne: this.setStateOne,
+        setStateTwo: this.setStateTwo,
+        setStateThree: this.setStateThree,
+        setStateFour: this.setStateFour,
+        setStateFive: this.setStateFive
       }));
     }
   }]);
@@ -369,7 +421,7 @@ var PhotoGrid = function PhotoGrid(props) {
     id: "pm-main",
     alt: "Main Image",
     onClick: function onClick() {
-      return props.openModal();
+      return props.setStateOne();
     },
     src: props.photos[0].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -378,7 +430,7 @@ var PhotoGrid = function PhotoGrid(props) {
     id: "pm-img1",
     alt: "Photo1",
     onClick: function onClick() {
-      return props.openModal();
+      return props.setStateTwo();
     },
     src: props.photos[1].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -387,7 +439,7 @@ var PhotoGrid = function PhotoGrid(props) {
     id: "pm-img2",
     alt: "Photo2",
     onClick: function onClick() {
-      return props.openModal();
+      return props.setStateThree();
     },
     src: props.photos[2].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -396,7 +448,7 @@ var PhotoGrid = function PhotoGrid(props) {
     id: "pm-img3",
     alt: "Photo3",
     onClick: function onClick() {
-      return props.openModal();
+      return props.setStateFour();
     },
     src: props.photos[3].url
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -410,7 +462,7 @@ var PhotoGrid = function PhotoGrid(props) {
     id: "pm-img4",
     alt: "Photo4",
     onClick: function onClick() {
-      return props.openModal();
+      return props.setStateFive();
     },
     src: props.photos[4].url
   })));

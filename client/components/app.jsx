@@ -35,7 +35,7 @@ class PMApp extends React.Component {
         "description": "Desirable sanctuary in downtown Los Angeles"
       },
       {
-        "id": 445,
+        "id": 5,
         "propertyID": 1,
         "url": "https://wallpapercave.com/wp/HsM0IHh.jpg",
         "description": "Sunny retreat in heart of Community"
@@ -46,6 +46,47 @@ class PMApp extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.nextClick = this.nextClick.bind(this);
     this.prevClick = this.prevClick.bind(this);
+    this.setStateOne = this.setStateOne.bind(this);
+    this.setStateTwo = this.setStateTwo.bind(this);
+    this.setStateThree = this.setStateThree.bind(this);
+    this.setStateFour = this.setStateFour.bind(this);
+    this.setStateFive = this.setStateFive.bind(this);
+  }
+
+  // set state to 
+  setStateOne(event) {
+    this.setState({
+      currentIndex: 0,
+      modalIsOpen: true,
+    });
+  }
+
+  setStateTwo(event) {
+    this.setState({
+      currentIndex: 1,
+      modalIsOpen: true,
+    });
+  }
+
+  setStateThree(event) {
+    this.setState({
+      currentIndex: 2,
+      modalIsOpen: true,
+    });
+  }
+
+  setStateFour(event) {
+    this.setState({
+      currentIndex: 3,
+      modalIsOpen: true,
+    });
+  }
+
+  setStateFive(event) {
+    this.setState({
+      currentIndex: 4,
+      modalIsOpen: true,
+    });
   }
 
   nextClick() {
@@ -72,8 +113,11 @@ class PMApp extends React.Component {
     }));
   }
 
-  openModal() {
-    this.setState({modalIsOpen: true});
+  openModal(event) {
+    this.setState({
+      modalIsOpen: true,
+      // currentIndex: this.id,
+    });
   }
 
   closeModal() {
@@ -113,6 +157,11 @@ class PMApp extends React.Component {
         <PhotoGrid 
         photos={this.state.photos} 
         openModal={this.openModal}
+        setStateOne={this.setStateOne}
+        setStateTwo={this.setStateTwo}
+        setStateThree={this.setStateThree}
+        setStateFour={this.setStateFour}
+        setStateFive={this.setStateFive}
         />
       </div>
     );
