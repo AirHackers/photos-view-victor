@@ -35,7 +35,6 @@ const func = () => {
 };
 
 const collection = func();
-const collectionCount = 0;
 
 // INVOKE AND INSERT INTO DB
 collection.forEach(item => insertToDB(item, (err) => {

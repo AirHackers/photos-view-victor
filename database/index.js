@@ -1,17 +1,10 @@
+
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   database: 'photosdb',
-});
-
-db.connect((err) => {
-  if (err) {
-    throw err;
-  } else {
-    console.log('Connected!');
-  }
 });
 
 const insertToDB = (data, cb) => {
@@ -35,4 +28,4 @@ const getFromDB = (propertyID, callback) => {
   });
 };
 
-module.exports = {insertToDB, getFromDB};
+module.exports = { insertToDB, getFromDB };
