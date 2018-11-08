@@ -1,4 +1,5 @@
-const insertToDB = require('./index.js').insertToDB;
+const Promise = require('bluebird');
+const { db, insertToDBAsync } = require('./index.js');
 
 // HELPER FUNCTIONS
 const descriptionGenerator = () => {
@@ -36,9 +37,19 @@ const func = () => {
 
 const collection = func();
 
-// INVOKE AND INSERT INTO DB
-collection.forEach(item => insertToDB(item, (err) => {
-  if (err) {
-    console.log(err);
-  } 
-}));
+// INSERT MOCK DATA INTO DATABASE ASYNC
+const dbInsertion = () => {
+  const array = [];
+  for (let i = 0; i < collection.length; i += 1) {
+    array.push(insertToDBAsync(collection[i]));
+  }
+  Promise.all(array)
+    .then(() => {
+      db.end();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+dbInsertion();

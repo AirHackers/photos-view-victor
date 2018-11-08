@@ -7,13 +7,16 @@ const db = mysql.createConnection({
   database: 'photosdb',
 });
 
-const insertToDB = (data, cb) => {
-  const query = 'INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)';
-  db.query(query, [data.propertyID, data.url, data.description], (error, results) => {
-    if (error) {
-      cb(error);
-      console.log(results);
-    }
+const insertToDBAsync = (data) => {
+  return new Promise((resolve, reject) => {
+    const query = 'INSERT INTO photos (propertyID, url, description) VALUES (?, ?, ?)';
+    db.query(query, [data.propertyID, data.url, data.description], (error, results) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(results);
+      }
+    });
   });
 };
 
@@ -28,4 +31,4 @@ const getFromDB = (propertyID, callback) => {
   });
 };
 
-module.exports = { insertToDB, getFromDB };
+module.exports = { getFromDB, db, insertToDBAsync };
