@@ -1,4 +1,4 @@
-const port = 3002;
+const port = 8081;
 const express = require('express');
 const { getFromDB } = require('../database/index.js');
 const path = require('path');
