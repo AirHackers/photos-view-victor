@@ -137,7 +137,7 @@ class PMApp extends React.Component {
   }
 
   componentDidMount() {
-    const propertyId = window.location.pathname.substring(1);   // substring(7, 9)
+    const propertyId = window.location.pathname.substring(7, 9);   // substring(7, 9)
     this.fetchPhoto(propertyId)
       .then((val) => {
         this.setState({ photos: JSON.parse(val) });
