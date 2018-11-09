@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PhotoGrid = (props) => {
-
   return(
     <div className="pm-grid-container">
       <div className="pm-main">

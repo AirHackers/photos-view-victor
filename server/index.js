@@ -1,6 +1,6 @@
 const port = 3002;
 const express = require('express');
-const getFromDB = require('../database/index.js').getFromDB;
+const { getFromDB } = require('../database/index.js');
 const path = require('path');
 
 const app = express();

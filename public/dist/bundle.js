@@ -280,12 +280,14 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var propertyId = window.location.pathname.slice(7);
+      var propertyId = window.location.pathname.substring(1); // substring(7, 9)
+
       this.fetchPhoto(propertyId).then(function (val) {
         _this2.setState({
           photos: JSON.parse(val)
-        }); // console.log(val);
+        });
 
+        console.log(val);
       });
     }
   }, {
