@@ -125,7 +125,7 @@ class PMApp extends React.Component {
   }
   
   fetchPhoto(id) {
-    return fetch(`/photos/${id}`)
+    return fetch(`http://3.16.153.113/photos/${id}`)
       .then ((response) => {
         return response.json();
       })

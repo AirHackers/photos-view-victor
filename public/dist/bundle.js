@@ -268,7 +268,7 @@ function (_React$Component) {
     value: function fetchPhoto(id) {
       var _this2 = this;
 
-      return fetch("/photos/".concat(id)).then(function (response) {
+      return fetch("http://3.16.153.113/photos/".concat(id)).then(function (response) {
         return response.json();
       }).then(function (finalPhotos) {
         _this2.setState({
