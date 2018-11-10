@@ -284,7 +284,7 @@ function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var propertyId = window.location.pathname.substring(1, 3); // substring(7, 9)
+      var propertyId = window.location.pathname.replace(/[^0-9\.]+/g, ""); // substring(7, 9)
 
       this.fetchPhoto(propertyId); // .then((val) => {
       //   this.setState({ photos: JSON.parse(val) });

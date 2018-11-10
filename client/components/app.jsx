@@ -139,7 +139,8 @@ class PMApp extends React.Component {
   }
 
   componentDidMount() {
-    const propertyId =  window.location.pathname.substring(1, 3);  
+    const propertyId =  window.location.pathname.replace(/[^0-9\.]+/g,"");
+
      // substring(7, 9)
     this.fetchPhoto(propertyId)
       // .then((val) => {
