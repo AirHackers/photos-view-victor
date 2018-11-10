@@ -5,7 +5,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch",
     "seed": "node database/seed.js",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "db": "mysql -u airhackersuser --host=aa1up1m3dzex7j6.cuxheluft31u.us-east-2.rds.amazonaws.com -p < database/schema.sql"
   },
   "author": "",
   "license": "ISC",

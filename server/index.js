@@ -27,7 +27,7 @@ app.get('/photos/:propertyID', (req, res) => {
       res.send(err);
     } else {
       allowCORS(res);
-      res.status(200).send(results);
+      res.status(200).send(JSON.stringify(results));
     }
   });
 });

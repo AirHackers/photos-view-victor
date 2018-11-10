@@ -266,29 +266,30 @@ function (_React$Component) {
   }, {
     key: "fetchPhoto",
     value: function fetchPhoto(id) {
-      return fetch("http://localhost:3002/photos/".concat(id)).then(function (response) {
-        // console.log(response)
+      var _this2 = this;
+
+      return fetch("/photos/".concat(id)).then(function (response) {
         return response.json();
-      }).then(function (myJson) {
-        return JSON.stringify(myJson);
-      }).catch(function (err) {
+      }).then(function (finalPhotos) {
+        _this2.setState({
+          photos: finalPhotos
+        });
+      }) // .then (function(myJson) {
+      //   return JSON.stringify(myJson);
+      // })
+      .catch(function (err) {
         if (err) console.log(err);
       });
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
+      var propertyId = window.location.pathname.substring(1, 3); // substring(7, 9)
 
-      var propertyId = window.location.pathname.substring(1); // substring(7, 9)
-
-      this.fetchPhoto(propertyId).then(function (val) {
-        _this2.setState({
-          photos: JSON.parse(val)
-        });
-
-        console.log(val);
-      });
+      this.fetchPhoto(propertyId); // .then((val) => {
+      //   this.setState({ photos: JSON.parse(val) });
+      //   console.log(val);
+      // });
     }
   }, {
     key: "render",

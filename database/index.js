@@ -2,9 +2,15 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'photosdb',
+  host     : process.env.RDS_HOSTNAME || 'localhost',
+  user     : process.env.RDS_USERNAME || 'root',
+  password : process.env.RDS_PASSWORD || '',
+  port     : process.env.RDS_PORT || 3306,
+  // host : 'aa1up1m3dzex7j6.cuxheluft31u.us-east-2.rds.amazonaws.com',
+  // user: 'airhackersuser',
+  // password: 'photospassword',
+  // port: 3306,
+  database : "photosdb"
 });
 
 const insertToDBAsync = (data) => {

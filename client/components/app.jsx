@@ -125,24 +125,27 @@ class PMApp extends React.Component {
   }
   
   fetchPhoto(id) {
-    return fetch(`http://localhost:3002/photos/${id}`)
-      .then (function(response) {
-        // console.log(response)
+    return fetch(`/photos/${id}`)
+      .then ((response) => {
         return response.json();
       })
-      .then (function(myJson) {
-        return JSON.stringify(myJson);
+      .then ((finalPhotos) => {      
+        this.setState({ photos: finalPhotos});
       })
+      // .then (function(myJson) {
+      //   return JSON.stringify(myJson);
+      // })
       .catch(err => {if (err) console.log(err)});
   }
 
   componentDidMount() {
-    const propertyId = window.location.pathname.substring(7, 9);   // substring(7, 9)
+    const propertyId =  window.location.pathname.substring(1, 3);  
+     // substring(7, 9)
     this.fetchPhoto(propertyId)
-      .then((val) => {
-        this.setState({ photos: JSON.parse(val) });
-        console.log(val);
-      });
+      // .then((val) => {
+      //   this.setState({ photos: JSON.parse(val) });
+      //   console.log(val);
+      // });
   }
 
   render() {
